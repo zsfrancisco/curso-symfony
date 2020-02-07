@@ -5,10 +5,10 @@
 {% block body %}
     <h1>Edit Nota</h1>
 
-    {{ include('nota/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('nota/_form.html.twig', {'button_label': 'Actualizar'}) }} <hr>
 
-    <a href="{{ path('nota_index') }}">back to list</a>
-    <a href="{{ path('panel') }}">Home</a>
+    <a class="btn btn-primary" href="{{ path('nota_index') }}">Volver al listado</a>
+    <a class="btn btn-primary" href="{{ path('panel') }}">Home</a> <hr>
 
     {{ include('nota/_delete_form.html.twig') }}
 {% endblock %}

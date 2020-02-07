@@ -59,8 +59,8 @@
                 <td>{{ notum.getAsignatura().getNombre() }}</td>
                 <td>{{ notum.calificacion }}</td>
                 <td>
-                    <a href="{{ path('nota_show', {'id': notum.id}) }}">show</a>
-                    <a href="{{ path('nota_edit', {'id': notum.id}) }}">edit</a>
+                    <a href="{{ path('nota_show', {'id': notum.id}) }}">show <img src=" {{ asset('img/busqueda.png') }} " > </a>
+                    <a href="{{ path('nota_edit', {'id': notum.id}) }}">edit <img src=" {{ asset('img/editar.png') }} " > </a>
                 </td>
             </tr>
         {% else %}
@@ -71,6 +71,6 @@
         </tbody>
     </table>
 
-    <a href="{{ path('nota_new') }}">Crear nueva</a>
-    <a href="{{ path('panel') }}">Home</a>
+    <a class="btn btn-success" href="{{ path('nota_new') }}">Crear nueva</a>
+    <a class="btn btn-primary" href="{{ path('panel') }}">Home</a>
 {% endblock %}

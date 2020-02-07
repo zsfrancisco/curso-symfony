@@ -19,8 +19,8 @@
                 <td>{{ estudiante.id }}</td>
                 <td>{{ estudiante.nombre }}</td>
                 <td>
-                    <a href="{{ path('estudiante_show', {'id': estudiante.id}) }}">show</a>
-                    <a href="{{ path('estudiante_edit', {'id': estudiante.id}) }}">edit</a>
+                    <a href="{{ path('estudiante_show', {'id': estudiante.id}) }}">show <img src=" {{ asset('img/busqueda.png') }} " > </a>
+                    <a href="{{ path('estudiante_edit', {'id': estudiante.id}) }}">edit <img src=" {{ asset('img/editar.png') }} " > </a>
                 </td>
             </tr>
         {% else %}
@@ -31,6 +31,6 @@
         </tbody>
     </table>
 
-    <a href="{{ path('estudiante_new') }}">Create new</a>
-    <a href="{{ path('panel') }}">Home</a>
+    <a class="btn btn-success" href="{{ path('estudiante_new') }}">Create new</a>
+    <a class="btn btn-primary" href="{{ path('panel') }}">Home</a>
 {% endblock %}
