@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nota index{% endblock %}
+
+{% block body %}
+    {# {{ dump(estudiantes) }} #}
+
+    <h1>Nota index</h1>
+
+    <script>
+        function redirigir(){
+            var href = document.getElementById("estudiante").value;
+            var enlace = document.getElementById("enlace");
+            enlace.href = href;
+            console.log(href);
+        }
+        function redirigir2(){
+            var href2 = document.getElementById("asignatura").value;
+            var enlace = document.getElementById("enlace2");
+            enlace.href = href2;
+            console.log(href2);
+        }
+    </script>
+
+
+    <select id="estudiante" onchange="redirigir()">
+        {% for estudiante in estudiantes %}
+            <option id="href" value = " {{ path('show_student', {'id': estudiante.id}) }} " > {{ estudiante.nombre }} </option>
+        {% endfor %}
+    </select>
+
+    <a id="enlace" href="" > filtrar estudiante </a><br>
+
+    {# {{ dump(asignaturas) }} #}
+
+    <select id="asignatura" onchange="redirigir2()">
+        {% for asignatura in asignaturas %}
+            <option id="href" value = " {{ path('aprobados', {'id': asignatura.id}) }} " > {{ asignatura.nombre }} </option>
+        {% endfor %}
+    </select>
+
+    <a id="enlace2" href="" > filtrar asignatura </a>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Alumno</th>
+                <th>Asignatura</th>
+                <th>Calificacion</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for notum in notas %}
+            <tr>
+                <td>{{ notum.id }}</td>
+                <td>{{ notum.getEstudiante().getNombre() }}</td>
+                <td>{{ notum.getAsignatura().getNombre() }}</td>
+                <td>{{ notum.calificacion }}</td>
+                <td>
+                    <a href="{{ path('nota_show', {'id': notum.id}) }}">show</a>
+                    <a href="{{ path('nota_edit', {'id': notum.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('nota_new') }}">Crear nueva</a>
+    <a href="{{ path('panel') }}">Home</a>
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello PanelController!{% endblock %}
+
+{% block body %}
+
+<h2>Bienvenido al panel de control</h2>
+
+<a href="{{ path('estudiante_index') }}"> Administrar estudiantes </a><br>
+<a href="{{ path('asignatura_index') }}"> Administrar asignaturas </a><br>
+<a href="{{ path('nota_index') }}"> Administrar notas </a>
+
+{% endblock %}
